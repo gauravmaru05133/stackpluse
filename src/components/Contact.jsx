@@ -4,17 +4,60 @@ import { ArrowRight, Check, Building2, Rocket, User, Zap } from 'lucide-react'
 import SectionReveal from './SectionReveal'
 import { useLanguage } from '../i18n/LanguageContext'
 
+const INQUIRY_EMAIL = 'gauravmaru2@gmail.com'
+
+async function sendInquiry(form) {
+  const response = await fetch(`https://formsubmit.co/ajax/${INQUIRY_EMAIL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify({
+      name: form.name,
+      email: form.email,
+      mobile: form.mobile,
+      company: form.company || '—',
+      type: form.type,
+      interest: form.interest,
+      message: form.message,
+      _replyto: form.email,
+      _subject: `stackpluse inquiry from ${form.name}`,
+      _template: 'table',
+      _captcha: 'false',
+    }),
+  })
+
+  const data = await response.json().catch(() => ({}))
+  const message = String(data.message || '')
+  const ok =
+    response.ok &&
+    (data.success === true ||
+      data.success === 'true' ||
+      message.toLowerCase().includes('activation'))
+
+  if (!ok) {
+    throw new Error(message || 'Request failed')
+  }
+
+  return { needsActivation: message.toLowerCase().includes('activation') }
+}
+
 export default function Contact() {
   const { t } = useLanguage()
   const [form, setForm] = useState({
     name: '',
     email: '',
+    mobile: '',
     company: '',
     type: 'startup',
     interest: 'launch',
     message: '',
   })
   const [sent, setSent] = useState(false)
+  const [needsActivation, setNeedsActivation] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState('')
 
   const types = [
     { id: 'business', label: t('contact.typeBusiness'), icon: Building2 },
@@ -25,12 +68,25 @@ export default function Contact() {
   const valid =
     form.name.trim() &&
     form.email.includes('@') &&
+    form.mobile.replace(/\D/g, '').length >= 10 &&
     form.message.trim().length > 8
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault()
-    if (!valid) return
-    setSent(true)
+    if (!valid || sending) return
+
+    setSending(true)
+    setError('')
+
+    try {
+      const result = await sendInquiry(form)
+      setNeedsActivation(Boolean(result.needsActivation))
+      setSent(true)
+    } catch {
+      setError(t('contact.error'))
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -103,7 +159,9 @@ export default function Contact() {
                       {form.name ? `, ${form.name}` : ''}
                     </h3>
                     <p className="mt-2 max-w-sm text-sm text-muted">
-                      {t('contact.thanksDesc')}
+                      {needsActivation
+                        ? t('contact.activateDesc')
+                        : t('contact.thanksDesc')}
                     </p>
                   </motion.div>
                 ) : (
@@ -167,6 +225,15 @@ export default function Contact() {
                       required
                     />
                     <input
+                      type="tel"
+                      inputMode="tel"
+                      placeholder={t('contact.phonePh')}
+                      value={form.mobile}
+                      onChange={(e) => setForm({ ...form, mobile: e.target.value })}
+                      className="w-full rounded-xl border border-border bg-bg/60 px-4 py-3 text-sm text-text outline-none focus:border-cyan/50"
+                      required
+                    />
+                    <input
                       type="text"
                       placeholder={t('contact.companyPh')}
                       value={form.company}
@@ -188,12 +255,15 @@ export default function Contact() {
 
                     <button
                       type="submit"
-                      disabled={!valid}
+                      disabled={!valid || sending}
                       className="glow-btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan via-purple to-warm px-5 py-3.5 text-sm font-bold text-bg disabled:opacity-40"
                     >
-                      {t('contact.submit')}
+                      {sending ? t('contact.sending') : t('contact.submit')}
                       <ArrowRight size={16} />
                     </button>
+                    {error ? (
+                      <p className="text-center text-[11px] text-red-400">{error}</p>
+                    ) : null}
                     <p className="text-center text-[11px] text-muted">
                       {t('contact.footnote')}
                     </p>

@@ -1,4 +1,4 @@
-import { ArrowUpRight } from 'lucide-react'
+import Logo from './Logo'
 import { useLanguage } from '../i18n/LanguageContext'
 
 export default function Footer() {
@@ -8,19 +8,8 @@ export default function Footer() {
     <footer className="relative border-t border-border pt-16 pb-10">
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-5 md:flex-row md:items-end md:justify-between md:px-8">
         <div>
-          <a href="#top" className="inline-flex items-center gap-2.5">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-cyan/25 via-purple/30 to-warm/25 ring-1 ring-cyan/30">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M2 13L8 2L14 13H2Z" stroke="#00F0FF" strokeWidth="1.5" />
-                <path d="M5 13L8 7L11 13" stroke="#8B5CFF" strokeWidth="1.5" />
-              </svg>
-            </span>
-            <span
-              className="text-lg font-bold text-text"
-              style={{ fontFamily: 'var(--font-display)' }}
-            >
-              stack<span className="gradient-text">pluse</span>
-            </span>
+          <a href="#top" className="inline-flex">
+            <Logo size="md" />
           </a>
           <p className="mt-4 max-w-sm text-sm text-muted">{t('footer.blurb')}</p>
         </div>
@@ -34,13 +23,6 @@ export default function Footer() {
           </a>
           <a href="#contact" className="text-muted transition hover:text-text">
             {t('footer.inquire')}
-          </a>
-          <a
-            href="mailto:hello@stackpluse.com"
-            className="inline-flex items-center gap-1 font-medium text-cyan transition hover:opacity-80"
-          >
-            hello@stackpluse.com
-            <ArrowUpRight size={14} />
           </a>
         </div>
       </div>

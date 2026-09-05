@@ -67,9 +67,12 @@ export default function Hero() {
       <SectionReveal className="relative z-10 mx-auto w-full max-w-4xl px-5 text-center md:px-8">
         {(item) => (
           <>
-            <motion.div variants={item} className="mb-6 friendly-pill">
-              <Zap size={13} className="text-warm" />
-              {t('hero.badge')}
+           
+            <motion.div variants={item} className="mb-6 flex justify-center">
+              <span className="friendly-pill">
+                <Zap size={13} className="text-warm" />
+                {t('hero.badge')}
+              </span>
             </motion.div>
 
             <motion.h1

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import LanguageSwitcher from './LanguageSwitcher'
+import Logo from './Logo'
 import { useLanguage } from '../i18n/LanguageContext'
 
 export default function Navbar() {
@@ -32,19 +33,8 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 md:h-18 md:px-8">
-        <a href="#top" className="group flex items-center gap-2.5">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-cyan/25 via-purple/30 to-warm/25 ring-1 ring-cyan/30">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M2 13L8 2L14 13H2Z" stroke="#00F0FF" strokeWidth="1.5" />
-              <path d="M5 13L8 7L11 13" stroke="#8B5CFF" strokeWidth="1.5" />
-            </svg>
-          </span>
-          <span
-            className="text-[1.05rem] font-bold tracking-tight text-text"
-            style={{ fontFamily: 'var(--font-display)' }}
-          >
-            stack<span className="gradient-text">pluse</span>
-          </span>
+        <a href="#top" className="group">
+          <Logo size="sm" />
         </a>
 
         <div className="hidden items-center gap-6 md:flex">
