@@ -3,7 +3,7 @@ import { translations } from './translations'
 
 const LanguageContext = createContext(null)
 
-const STORAGE_KEY = 'stackpluse-lang'
+const STORAGE_KEY = 'stackpulse-lang'
 
 function getByPath(obj, path) {
   return path.split('.').reduce((acc, key) => (acc == null ? undefined : acc[key]), obj)

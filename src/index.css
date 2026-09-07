@@ -179,6 +179,33 @@ body {
   animation: pulse-glow 4s ease-in-out infinite;
 }
 
+@media (max-width: 768px) {
+  .animate-float,
+  .animate-float-delayed {
+    animation-duration: 5s;
+  }
+
+  .aurora {
+    animation: pulse-glow 5s ease-in-out infinite;
+  }
+
+  .marquee-track {
+    animation-duration: 24s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-float-delayed,
+  .animate-pulse-glow,
+  .aurora,
+  .marquee-track,
+  .shimmer-border,
+  .scroll-cue {
+    animation: none !important;
+  }
+}
+
 .shimmer-border {
   background: linear-gradient(
     90deg,

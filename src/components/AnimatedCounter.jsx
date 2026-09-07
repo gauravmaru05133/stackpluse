@@ -10,7 +10,13 @@ export default function AnimatedCounter({
   className = '',
 }) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-80px' })
+  const isMobile =
+    typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches
+  const isInView = useInView(ref, {
+    once: true,
+    amount: 0.2,
+    margin: isMobile ? '0px' : '-40px',
+  })
   const [display, setDisplay] = useState(0)
   const numeric =
     typeof value === 'number'

@@ -30,7 +30,7 @@ export default function Logo({
       >
         <img
           src={logoImage}
-          alt="stackpluse logo"
+          alt="stackpulse logo"
           className={`${config.icon} object-contain mix-blend-screen`}
         />
       </span>
@@ -39,7 +39,7 @@ export default function Logo({
           className={`font-bold tracking-tight text-text ${config.text} ${textClassName}`}
           style={{ fontFamily: 'var(--font-display)' }}
         >
-          stack<span className="gradient-text">pluse</span>
+          stack<span className="gradient-text">pulse</span>
         </span>
       ) : null}
     </span>

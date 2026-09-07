@@ -23,7 +23,7 @@ async function sendInquiry(form) {
       interest: form.interest,
       message: form.message,
       _replyto: form.email,
-      _subject: `stackpluse inquiry from ${form.name}`,
+      _subject: `stackpulse inquiry from ${form.name}`,
       _template: 'table',
       _captcha: 'false',
     }),

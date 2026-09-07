@@ -1,4 +1,4 @@
-# stackpluse
+# stackpulse
 
 Modern SaaS landing & inquiry site built with **React + Vite**.
 

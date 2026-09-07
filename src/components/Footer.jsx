@@ -38,7 +38,7 @@ export default function Footer() {
 
       <div className="mx-auto mt-12 max-w-6xl px-5 md:px-8">
         <p className="text-xs text-muted/70">
-          © {new Date().getFullYear()} stackpluse — {t('footer.rights')}
+          © {new Date().getFullYear()} stackpulse — {t('footer.rights')}
         </p>
       </div>
     </footer>

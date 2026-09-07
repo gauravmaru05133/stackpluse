@@ -1,8 +1,8 @@
-# stackpluse — Website details
+# stackpulse — Website details
 
 ## What it is
 
-**stackpluse** is a marketing / inquiry website for a branded website product.
+**stackpulse** is a marketing / inquiry website for a branded website product.
 
 It helps founders, startups, and businesses:
 
@@ -11,7 +11,7 @@ It helps founders, startups, and businesses:
 - Get **managed setup**
 - Aim for a **fast launch**
 
-Brand / product name on the site: **stackpluse**
+Brand / product name on the site: **stackpulse**
 
 Core message: **Your brand. Your website.**
 
@@ -26,7 +26,7 @@ Core message: **Your brand. Your website.**
 | Launch promise | Live-in-1-day promise |
 | Modules | Product capabilities |
 | Special care | Hassle-free + custom solutions |
-| Features | Why choose stackpluse |
+| Features | Why choose stackpulse |
 | Proof | Stats / social proof |
 | Contact / Inquiry | Lead form |
 | Footer | Links + copyright |

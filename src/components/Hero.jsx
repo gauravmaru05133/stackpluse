@@ -64,7 +64,10 @@ export default function Hero() {
         </div>
       ))}
 
-      <SectionReveal className="relative z-10 mx-auto w-full max-w-4xl px-5 text-center md:px-8">
+      <SectionReveal
+        immediate
+        className="relative z-10 mx-auto w-full max-w-4xl px-5 text-center md:px-8"
+      >
         {(item) => (
           <>
            

@@ -72,7 +72,7 @@ app.post('/api/inquiry', async (req, res) => {
   const mobileLabel = mobile?.trim() || '—'
 
   const text = [
-    'New stackpluse inquiry',
+    'New stackpulse inquiry',
     '',
     `Name: ${name.trim()}`,
     `Email: ${email.trim()}`,
@@ -86,7 +86,7 @@ app.post('/api/inquiry', async (req, res) => {
   ].join('\n')
 
   const html = `
-    <h2>New stackpluse inquiry</h2>
+    <h2>New stackpulse inquiry</h2>
     <p><strong>Name:</strong> ${escapeHtml(name.trim())}</p>
     <p><strong>Email:</strong> ${escapeHtml(email.trim())}</p>
     <p><strong>Mobile:</strong> ${escapeHtml(mobileLabel)}</p>
@@ -101,7 +101,7 @@ app.post('/api/inquiry', async (req, res) => {
     const transporter = createTransporter()
 
     await transporter.sendMail({
-      from: `"stackpluse Inquiry" <${process.env.SMTP_USER}>`,
+      from: `"stackpulse Inquiry" <${process.env.SMTP_USER}>`,
       to: INQUIRY_TO,
       replyTo: email.trim(),
       subject: `New inquiry from ${name.trim()}${company?.trim() ? ` (${company.trim()})` : ''}`,
