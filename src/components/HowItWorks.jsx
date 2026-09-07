@@ -1,16 +1,15 @@
 import { motion } from 'framer-motion'
-import { MessageCircle, Puzzle, CreditCard, Rocket } from 'lucide-react'
 import SectionReveal from './SectionReveal'
+import CtaButtons from './CtaButtons'
 import { useLanguage } from '../i18n/LanguageContext'
 
 export default function HowItWorks() {
   const { t } = useLanguage()
 
   const steps = [
-    { icon: MessageCircle, step: '01', title: t('how.s1Title'), desc: t('how.s1Desc') },
-    { icon: Puzzle, step: '02', title: t('how.s2Title'), desc: t('how.s2Desc') },
-    { icon: CreditCard, step: '03', title: t('how.s3Title'), desc: t('how.s3Desc') },
-    { icon: Rocket, step: '04', title: t('how.s4Title'), desc: t('how.s4Desc') },
+    { num: '01', title: t('how.s1Title'), desc: t('how.s1Desc') },
+    { num: '02', title: t('how.s2Title'), desc: t('how.s2Desc') },
+    { num: '03', title: t('how.s3Title'), desc: t('how.s3Desc') },
   ]
 
   return (
@@ -30,24 +29,26 @@ export default function HowItWorks() {
               >
                 {t('how.title')}
               </h2>
-              <p className="mt-4 text-muted">{t('how.desc')}</p>
             </motion.div>
 
-            <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {steps.map((s) => {
-                const Icon = s.icon
-                return (
+            <div className="relative mt-14">
+              <div className="pointer-events-none absolute left-[8%] right-[8%] top-8 hidden h-px bg-gradient-to-r from-cyan/0 via-cyan/40 to-cyan/0 md:block" />
+
+              <div className="grid gap-6 md:grid-cols-3">
+                {steps.map((s, i) => (
                   <motion.article
-                    key={s.step}
+                    key={s.num}
                     variants={item}
-                    className="feature-card glass relative rounded-2xl p-5"
+                    className="glass relative rounded-2xl p-6 text-center md:text-left"
                   >
-                    <span className="absolute right-4 top-4 text-xs font-bold text-muted/40">
-                      {s.step}
-                    </span>
-                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-cyan/15 to-purple/20 ring-1 ring-cyan/20">
-                      <Icon size={20} className="text-cyan" />
+                    <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-cyan/25 to-purple/30 text-sm font-bold text-cyan ring-1 ring-cyan/30 md:mx-0">
+                      {s.num}
                     </div>
+                    {i < steps.length - 1 ? (
+                      <span className="absolute right-3 top-8 hidden text-cyan/40 md:block" aria-hidden>
+                        →
+                      </span>
+                    ) : null}
                     <h3
                       className="text-lg font-semibold text-text"
                       style={{ fontFamily: 'var(--font-display)' }}
@@ -56,9 +57,13 @@ export default function HowItWorks() {
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted">{s.desc}</p>
                   </motion.article>
-                )
-              })}
+                ))}
+              </div>
             </div>
+
+            <motion.div variants={item} className="mt-12 flex justify-center">
+              <CtaButtons showSecondary={false} />
+            </motion.div>
           </>
         )}
       </SectionReveal>

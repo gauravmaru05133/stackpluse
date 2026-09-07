@@ -11,10 +11,11 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   const links = [
-    { href: '#how', label: t('nav.launchPath') },
-    { href: '#modules', label: t('nav.modules') },
-    { href: '#care', label: t('nav.customEdge') },
-    { href: '#contact', label: t('nav.inquire') },
+    { href: '#features', label: t('nav.features') },
+    { href: '#solutions', label: t('nav.solutions') },
+    { href: '#talk', label: t('nav.talk') },
+    { href: '#faq', label: t('nav.faq') },
+    { href: '#contact', label: t('nav.contact') },
   ]
 
   useEffect(() => {
@@ -37,7 +38,7 @@ export default function Navbar() {
           <Logo size="sm" />
         </a>
 
-        <div className="hidden items-center gap-6 md:flex">
+        <div className="hidden items-center gap-6 lg:flex">
           {links.map((l) => (
             <a
               key={l.href}
@@ -49,20 +50,21 @@ export default function Navbar() {
           ))}
           <LanguageSwitcher />
           <a
-            href="#contact"
+            href="#demo"
             className="glow-btn rounded-full bg-gradient-to-r from-cyan via-purple to-warm px-5 py-2 text-sm font-semibold text-bg"
           >
-            {t('nav.startInquiry')}
+            {t('nav.cta')}
           </a>
         </div>
 
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <LanguageSwitcher compact />
           <button
             type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-text"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
           >
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -75,7 +77,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-b border-border bg-bg/95 backdrop-blur-xl md:hidden"
+            className="overflow-hidden border-b border-border bg-bg/95 backdrop-blur-xl lg:hidden"
           >
             <div className="flex flex-col gap-1 px-5 py-4">
               {links.map((l) => (
@@ -89,11 +91,11 @@ export default function Navbar() {
                 </a>
               ))}
               <a
-                href="#contact"
+                href="#demo"
                 onClick={() => setOpen(false)}
                 className="mt-2 rounded-full bg-gradient-to-r from-cyan via-purple to-warm px-5 py-3 text-center text-sm font-semibold text-bg"
               >
-                {t('nav.startInquiry')}
+                {t('nav.cta')}
               </a>
             </div>
           </motion.div>

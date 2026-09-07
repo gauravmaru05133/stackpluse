@@ -5,10 +5,33 @@ import { WHATSAPP_DISPLAY, WHATSAPP_URL } from './WhatsAppFloat'
 export default function Footer() {
   const { t } = useLanguage()
 
+  const nav = [
+    { href: '#top', label: t('footer.home') },
+    { href: '#features', label: t('footer.features') },
+    { href: '#solutions', label: t('footer.solutionsLink') },
+    { href: '#talk', label: t('footer.talk') },
+    { href: '#faq', label: t('footer.faq') },
+    { href: '#contact', label: t('footer.contact') },
+  ]
+
+  const solutions = [
+    { href: '#solutions', label: t('footer.travel') },
+    { href: '#solutions', label: t('footer.taxi') },
+    { href: '#solutions', label: t('footer.local') },
+    { href: '#solutions', label: t('footer.professional') },
+  ]
+
+  const company = [
+    { href: '#top', label: t('footer.about') },
+    { href: '#contact', label: t('footer.contact') },
+    { href: '#faq', label: t('footer.privacy') },
+    { href: '#faq', label: t('footer.terms') },
+  ]
+
   return (
     <footer className="relative border-t border-border pt-16 pb-10">
-      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-5 md:flex-row md:items-end md:justify-between md:px-8">
-        <div>
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 sm:grid-cols-2 lg:grid-cols-4 md:px-8">
+        <div className="sm:col-span-2 lg:col-span-1">
           <a href="#top" className="inline-flex">
             <Logo size="md" />
           </a>
@@ -23,22 +46,55 @@ export default function Footer() {
           </a>
         </div>
 
-        <div className="flex flex-wrap gap-8 text-sm">
-          <a href="#how" className="text-muted transition hover:text-text">
-            {t('footer.launchPath')}
-          </a>
-          <a href="#care" className="text-muted transition hover:text-text">
-            {t('footer.customEdge')}
-          </a>
-          <a href="#contact" className="text-muted transition hover:text-text">
-            {t('footer.inquire')}
-          </a>
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wider text-muted">
+            {t('footer.nav')}
+          </p>
+          <ul className="mt-4 space-y-2.5 text-sm">
+            {nav.map((l) => (
+              <li key={l.label}>
+                <a href={l.href} className="text-muted transition hover:text-text">
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wider text-muted">
+            {t('footer.solutions')}
+          </p>
+          <ul className="mt-4 space-y-2.5 text-sm">
+            {solutions.map((l) => (
+              <li key={l.label}>
+                <a href={l.href} className="text-muted transition hover:text-text">
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wider text-muted">
+            {t('footer.company')}
+          </p>
+          <ul className="mt-4 space-y-2.5 text-sm">
+            {company.map((l) => (
+              <li key={`${l.href}-${l.label}`}>
+                <a href={l.href} className="text-muted transition hover:text-text">
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
       <div className="mx-auto mt-12 max-w-6xl px-5 md:px-8">
         <p className="text-xs text-muted/70">
-          © {new Date().getFullYear()} stackpulse — {t('footer.rights')}
+          © {new Date().getFullYear()} StackPulse — {t('footer.rights')}
         </p>
       </div>
     </footer>

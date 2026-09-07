@@ -1,7 +1,13 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { translations } from './translations'
 
-const LanguageContext = createContext(null)
+// Keep a single Context instance across Vite HMR so providers/consumers stay in sync
+const LanguageContext =
+  globalThis.__stackpulseLanguageContext ?? createContext(null)
+
+if (typeof globalThis !== 'undefined') {
+  globalThis.__stackpulseLanguageContext = LanguageContext
+}
 
 const STORAGE_KEY = 'stackpulse-lang'
 
@@ -31,12 +37,12 @@ export function LanguageProvider({ children }) {
   const value = useMemo(() => {
     const dict = translations[lang] || translations.en
     const t = (path) => {
-      const value = getByPath(dict, path)
-      if (value == null) {
+      const resolved = getByPath(dict, path)
+      if (resolved == null) {
         const fallback = getByPath(translations.en, path)
         return fallback == null ? path : fallback
       }
-      return value
+      return resolved
     }
     return { lang, setLang, t }
   }, [lang])
@@ -48,6 +54,8 @@ export function LanguageProvider({ children }) {
 
 export function useLanguage() {
   const ctx = useContext(LanguageContext)
-  if (!ctx) throw new Error('useLanguage must be used within LanguageProvider')
+  if (!ctx) {
+    throw new Error('useLanguage must be used within LanguageProvider')
+  }
   return ctx
 }

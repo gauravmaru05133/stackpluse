@@ -1,146 +1,124 @@
 import { motion } from 'framer-motion'
-import { Zap, ArrowRight, Sparkles, Target, Rocket } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import SectionReveal from './SectionReveal'
+import CtaButtons from './CtaButtons'
 import { useLanguage } from '../i18n/LanguageContext'
+
+const LIVE_URL = 'https://gaurav-travel.challo.co/'
 
 export default function Hero() {
   const { t } = useLanguage()
 
-  const floatingCards = [
-    {
-      title: t('hero.float1Title'),
-      meta: t('hero.float1Meta'),
-      className: 'left-[5%] top-[20%] hidden lg:block animate-float',
-      glow: true,
-    },
-    {
-      title: t('hero.float2Title'),
-      meta: t('hero.float2Meta'),
-      className: 'right-[4%] top-[16%] hidden lg:block animate-float-delayed',
-    },
-    {
-      title: t('hero.float3Title'),
-      meta: t('hero.float3Meta'),
-      className: 'bottom-[16%] left-[8%] hidden md:block animate-float-delayed',
-    },
-    {
-      title: t('hero.float4Title'),
-      meta: t('hero.float4Meta'),
-      className: 'bottom-[20%] right-[7%] hidden md:block animate-float',
-      glow: true,
-    },
-  ]
-
-  const highlights = [
-    { icon: Sparkles, label: t('hero.pill1') },
-    { icon: Target, label: t('hero.pill2') },
-    { icon: Rocket, label: t('hero.pill3') },
-  ]
-
   return (
     <section
       id="top"
-      className="relative flex min-h-screen items-center overflow-hidden pt-20 pb-16"
+      className="relative overflow-hidden pt-24 pb-16 md:pt-28 md:pb-24"
     >
-      <div className="pointer-events-none absolute inset-0 grid-bg opacity-70" />
-      <div className="aurora opacity-80" />
-      <div className="pointer-events-none absolute bottom-0 left-1/2 h-48 w-[80%] -translate-x-1/2 bg-gradient-to-t from-bg/90 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 grid-bg opacity-50" />
+      <div className="aurora opacity-40" />
 
-      {floatingCards.map((card) => (
-        <div key={card.title} className={`absolute z-0 ${card.className}`}>
-          <div
-            className={`glass rounded-2xl px-4 py-3 shadow-lg shadow-black/30 ${
-              card.glow ? 'ring-1 ring-cyan/40 glow-cyan' : ''
-            }`}
-          >
-            <p
-              className="text-sm font-semibold text-text"
-              style={{ fontFamily: 'var(--font-display)' }}
-            >
-              {card.title}
-            </p>
-            <p className="mt-0.5 text-xs text-muted">{card.meta}</p>
-          </div>
-        </div>
-      ))}
-
-      <SectionReveal
-        immediate
-        className="relative z-10 mx-auto w-full max-w-4xl px-5 text-center md:px-8"
-      >
+      <SectionReveal className="relative mx-auto max-w-6xl px-5 md:px-8" immediate>
         {(item) => (
-          <>
-           
-            <motion.div variants={item} className="mb-6 flex justify-center">
-              <span className="friendly-pill">
-                <Zap size={13} className="text-warm" />
+          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
+            <div>
+              <motion.span
+                variants={item}
+                className="friendly-pill mb-5 inline-flex"
+              >
                 {t('hero.badge')}
-              </span>
-            </motion.div>
+              </motion.span>
 
-            <motion.h1
-              variants={item}
-              className="text-4xl font-extrabold leading-[1.08] tracking-tight text-text sm:text-5xl md:text-6xl lg:text-[4.2rem]"
-              style={{ fontFamily: 'var(--font-display)' }}
-            >
-              {t('hero.titleBefore')}{' '}
-              <span className="gradient-text">{t('hero.titleAccent')}</span>
-            </motion.h1>
-
-            <motion.p
-              variants={item}
-              className="mx-auto mt-5 max-w-2xl text-base text-muted md:text-lg"
-            >
-              {t('hero.descBefore')}{' '}
-              <span className="font-semibold text-text">{t('hero.whiteLabel')}</span>
-              {t('hero.descMid')}{' '}
-              <span className="font-semibold text-cyan">{t('hero.hassleFree')}</span>
-              {t('hero.descAnd')}{' '}
-              <span className="font-semibold gradient-text">{t('hero.goLive')}</span>
-              {t('hero.descEnd')}
-            </motion.p>
-
-            <motion.div
-              variants={item}
-              className="mx-auto mt-6 flex flex-wrap items-center justify-center gap-2"
-            >
-              {highlights.map(({ icon: Icon, label }) => (
-                <span
-                  key={label}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-medium text-muted"
-                >
-                  <Icon size={13} className="text-cyan" />
-                  {label}
-                </span>
-              ))}
-            </motion.div>
-
-            <motion.div
-              variants={item}
-              className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
-            >
-              <a
-                href="#contact"
-                className="glow-btn group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan via-purple to-warm px-8 py-3.5 text-sm font-bold text-bg"
+              <motion.h1
+                variants={item}
+                className="text-4xl font-extrabold leading-[1.12] tracking-tight text-text sm:text-5xl md:text-[3.25rem]"
+                style={{ fontFamily: 'var(--font-display)' }}
               >
-                {t('hero.ctaPrimary')}
-                <ArrowRight
-                  size={16}
-                  className="transition-transform group-hover:translate-x-0.5"
+                {t('hero.title')}{' '}
+                <span className="gradient-text">{t('hero.titleAccent')}</span>
+              </motion.h1>
+
+              <motion.p
+                variants={item}
+                className="mt-5 max-w-xl text-base text-muted md:text-lg"
+              >
+                {t('hero.desc')}
+              </motion.p>
+
+              <motion.div variants={item} className="mt-8">
+                <CtaButtons size="lg" />
+              </motion.div>
+
+              <motion.p
+                variants={item}
+                className="mt-5 text-sm text-muted/90"
+              >
+                {t('hero.trust')}
+              </motion.p>
+            </div>
+
+            <motion.div variants={item} className="relative mx-auto w-full max-w-lg lg:max-w-none">
+              <div className="glass-strong relative overflow-hidden rounded-2xl p-3 shadow-2xl shadow-black/40 md:p-4">
+                <div className="mb-3 flex items-center justify-between gap-2 px-1">
+                  <div className="flex items-center gap-1.5">
+                    <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-amber-400/80" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
+                  </div>
+                  <span className="truncate text-[11px] text-muted">
+                    {t('hero.visualLabel')} · {t('hero.visualBrand')}
+                  </span>
+                  <a
+                    href={LIVE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-[11px] font-semibold text-cyan hover:opacity-80"
+                  >
+                    Live <ExternalLink size={12} />
+                  </a>
+                </div>
+
+                <div className="relative overflow-hidden rounded-xl border border-border bg-bg">
+                  <img
+                    src="/previews/gaurav-travel.png"
+                    alt="Gaurav Travel website preview"
+                    className="aspect-[16/10] w-full object-cover object-top"
+                    loading="eager"
+                    width={800}
+                    height={500}
+                  />
+                </div>
+
+                <div className="mt-3 grid grid-cols-3 gap-2">
+                  {[t('hero.mockDash'), t('hero.mockEnquiries'), t('hero.mockBookings')].map(
+                    (label) => (
+                      <div
+                        key={label}
+                        className="rounded-lg border border-border bg-bg/50 px-2 py-2 text-center"
+                      >
+                        <p className="text-[10px] font-semibold uppercase tracking-wide text-muted md:text-[11px]">
+                          {label}
+                        </p>
+                        <div className="mx-auto mt-1.5 h-1.5 w-10 rounded-full bg-gradient-to-r from-cyan/60 to-purple/60" />
+                      </div>
+                    ),
+                  )}
+                </div>
+              </div>
+
+              <div className="absolute -bottom-4 -right-2 hidden w-36 overflow-hidden rounded-2xl border border-border bg-bg-elevated shadow-xl sm:block md:-right-4 md:w-40">
+                <div className="border-b border-border px-2 py-1.5 text-center text-[10px] text-muted">
+                  Mobile
+                </div>
+                <img
+                  src="/previews/gaurav-travel.png"
+                  alt=""
+                  aria-hidden
+                  className="aspect-[9/14] w-full object-cover object-top"
+                  loading="lazy"
                 />
-              </a>
-              <a
-                href="#modules"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/80 px-6 py-3.5 text-sm font-semibold text-text backdrop-blur transition hover:border-cyan/40"
-              >
-                {t('hero.ctaSecondary')}
-              </a>
+              </div>
             </motion.div>
-
-            <motion.p variants={item} className="mt-5 text-xs text-muted/85">
-              {t('hero.footnote')}
-            </motion.p>
-          </>
+          </div>
         )}
       </SectionReveal>
     </section>

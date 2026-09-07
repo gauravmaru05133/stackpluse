@@ -1,13 +1,18 @@
 import SmoothScroll from './components/SmoothScroll'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import Problem from './components/Problem'
+import Solution from './components/Solution'
 import HowItWorks from './components/HowItWorks'
-import LaunchPromise from './components/LaunchPromise'
-import Modules from './components/Modules'
-import SpecialCare from './components/SpecialCare'
-import Features from './components/Features'
-import Proof from './components/Proof'
-import Contact from './components/Contact'
+import Demo from './components/Demo'
+import Examples from './components/Examples'
+import Industries from './components/Industries'
+import WhyStackPulse from './components/WhyStackPulse'
+import TalkToUs from './components/TalkToUs'
+import FeatureDeepDive from './components/FeatureDeepDive'
+import Trust from './components/Trust'
+import FAQ from './components/FAQ'
+import FinalCTA from './components/FinalCTA'
 import Footer from './components/Footer'
 import WhatsAppFloat from './components/WhatsAppFloat'
 
@@ -30,13 +35,18 @@ export default function App() {
           <Navbar />
           <main>
             <Hero />
+            <Problem />
+            <Solution />
             <HowItWorks />
-            <LaunchPromise />
-            <Modules />
-            <SpecialCare />
-            <Features />
-            <Proof />
-            <Contact />
+            <Demo />
+            <Examples />
+            <Industries />
+            <WhyStackPulse />
+            <TalkToUs />
+            <FeatureDeepDive />
+            <Trust />
+            <FAQ />
+            <FinalCTA />
           </main>
           <Footer />
         </div>

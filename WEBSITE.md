@@ -1,43 +1,31 @@
-# stackpulse — Website details
+# StackPulse — Website details
 
 ## What it is
 
-**stackpulse** is a marketing / inquiry website for a branded website product.
+**StackPulse** is a SaaS marketing site for small and growing businesses.
 
-It helps founders, startups, and businesses:
+It helps businesses:
 
-- Launch a **branded website under their own name**
-- Choose **growth modules** (booking, payments, shop, CRM, etc.)
-- Get **managed setup**
-- Aim for a **fast launch**
+- Launch a **professional website under their own brand**
+- Manage **enquiries, customers, bookings, payments** and more
+- Start simple and **grow with the platform**
 
-Brand / product name on the site: **stackpulse**
-
-Core message: **Your brand. Your website.**
+Core message: **Launch Your Business Online. Under Your Brand.**
 
 ---
 
-## Main pages / sections
+## Homepage sections
 
-| Section | Purpose |
-|---|---|
-| Hero | Brand + main offer + CTA |
-| How it works | Launch path steps |
-| Launch promise | Live-in-1-day promise |
-| Modules | Product capabilities |
-| Special care | Hassle-free + custom solutions |
-| Features | Why choose stackpulse |
-| Proof | Stats / social proof |
-| Contact / Inquiry | Lead form |
-| Footer | Links + copyright |
+Hero → Problem → Solution → How it works → Personalized demo → Examples → Industries → Why StackPulse → Talk to Us → Feature deep dive → Trust → FAQ → Final CTA → Footer
 
 ---
 
 ## Contact & leads
 
-- Inquiry form sends to: **gauravmaru2@gmail.com** (via FormSubmit)
-- Form fields: name, email, mobile, company, type, interest, message
-- Languages: **English**, **Hindi**, **Gujarati**
+- Demo form sends to: **gauravmaru2@gmail.com** (via FormSubmit)
+- Fields: business name, business type, WhatsApp, email, website (optional)
+- Languages: **English** primary; Hindi / Gujarati switcher falls back to English until translated
+- WhatsApp: **+91 90999 84248**
 
 ---
 
@@ -66,9 +54,3 @@ Open: [http://localhost:5173](http://localhost:5173)
 npm run build
 npm run preview
 ```
-
----
-
-## Project idea (short)
-
-> Your brand. Your website. — modules, managed setup, and custom options — with a clear path to inquire and launch fast.
