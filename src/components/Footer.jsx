@@ -1,5 +1,6 @@
 import Logo from './Logo'
 import { useLanguage } from '../i18n/LanguageContext'
+import { WHATSAPP_DISPLAY, WHATSAPP_URL } from './WhatsAppFloat'
 
 export default function Footer() {
   const { t } = useLanguage()
@@ -12,6 +13,14 @@ export default function Footer() {
             <Logo size="md" />
           </a>
           <p className="mt-4 max-w-sm text-sm text-muted">{t('footer.blurb')}</p>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-block text-sm font-semibold text-cyan hover:opacity-80"
+          >
+            WhatsApp {WHATSAPP_DISPLAY}
+          </a>
         </div>
 
         <div className="flex flex-wrap gap-8 text-sm">

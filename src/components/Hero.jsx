@@ -42,9 +42,9 @@ export default function Hero() {
       id="top"
       className="relative flex min-h-screen items-center overflow-hidden pt-20 pb-16"
     >
-      <div className="pointer-events-none absolute inset-0 grid-bg" />
-      <div className="aurora" />
-      <div className="pointer-events-none absolute bottom-0 left-1/2 h-48 w-[80%] -translate-x-1/2 bg-gradient-to-t from-bg to-transparent" />
+      <div className="pointer-events-none absolute inset-0 grid-bg opacity-70" />
+      <div className="aurora opacity-80" />
+      <div className="pointer-events-none absolute bottom-0 left-1/2 h-48 w-[80%] -translate-x-1/2 bg-gradient-to-t from-bg/90 to-transparent" />
 
       {floatingCards.map((card) => (
         <div key={card.title} className={`absolute z-0 ${card.className}`}>

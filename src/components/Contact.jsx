@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight, Check, Building2, Rocket, User, Zap } from 'lucide-react'
 import SectionReveal from './SectionReveal'
 import { useLanguage } from '../i18n/LanguageContext'
+import { WHATSAPP_URL } from './WhatsAppFloat'
 
 const INQUIRY_EMAIL = 'gauravmaru2@gmail.com'
 
@@ -128,10 +129,12 @@ export default function Contact() {
               </ul>
 
               <a
-                href="mailto:hello@stackpluse.com"
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-8 inline-block text-sm font-semibold text-cyan hover:opacity-80"
               >
-                {t('contact.emailCta')}
+                {t('contact.whatsappCta')}
               </a>
             </motion.div>
 
