@@ -16,7 +16,7 @@ export default function Proof() {
   const stats = [
     { text: t('proof.s1Value'), label: t('proof.s1') },
     { value: 100, suffix: '%', label: t('proof.s2') },
-    { value: 50, suffix: '+', label: t('proof.s3') },
+    { value: 8, suffix: '+', label: t('proof.s3') },
     { value: 24, suffix: '/7', label: t('proof.s4') },
   ]
 
