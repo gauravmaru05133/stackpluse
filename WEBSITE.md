@@ -2,16 +2,18 @@
 
 ## What it is
 
-**stackpluse** is a marketing / inquiry website for a white-label website product.
+**stackpluse** is a marketing / inquiry website for a branded website product.
 
 It helps founders, startups, and businesses:
 
-- Launch a **branded white-label website**
+- Launch a **branded website under their own name**
 - Choose **growth modules** (booking, payments, shop, CRM, etc.)
-- Get **hassle-free setup**
-- Aim to go **live in 1 day**
+- Get **managed setup**
+- Aim for a **fast launch**
 
 Brand / product name on the site: **stackpluse**
+
+Core message: **Your brand. Your website.**
 
 ---
 
@@ -69,4 +71,4 @@ npm run preview
 
 ## Project idea (short)
 
-> White-label websites for entrepreneurs — modules, hassle-free delivery, and custom options — with a clear path to inquire and launch fast.
+> Your brand. Your website. — modules, managed setup, and custom options — with a clear path to inquire and launch fast.

@@ -14,7 +14,7 @@ export default function Proof() {
   const { t } = useLanguage()
 
   const stats = [
-    { value: 1, suffix: ' day', label: t('proof.s1') },
+    { text: t('proof.s1Value'), label: t('proof.s1') },
     { value: 100, suffix: '%', label: t('proof.s2') },
     { value: 50, suffix: '+', label: t('proof.s3') },
     { value: 24, suffix: '/7', label: t('proof.s4') },
@@ -70,7 +70,11 @@ export default function Proof() {
                     className="text-3xl font-extrabold gradient-text md:text-4xl"
                     style={{ fontFamily: 'var(--font-display)' }}
                   >
-                    <AnimatedCounter value={s.value} suffix={s.suffix} />
+                    {s.text ? (
+                      s.text
+                    ) : (
+                      <AnimatedCounter value={s.value} suffix={s.suffix} />
+                    )}
                   </div>
                   <p className="mt-2 text-xs font-medium uppercase tracking-wider text-muted md:text-sm">
                     {s.label}

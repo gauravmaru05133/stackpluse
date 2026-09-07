@@ -18,8 +18,9 @@ export function LanguageProvider({ children }) {
 
   const setLang = (code) => {
     if (!translations[code]) return
-    setLangState(code)
+    if (code === lang) return
     localStorage.setItem(STORAGE_KEY, code)
+    window.location.reload()
   }
 
   useEffect(() => {
