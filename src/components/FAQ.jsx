@@ -35,11 +35,23 @@ export default function FAQ() {
               </h2>
             </motion.div>
 
-            <motion.div variants={item} className="mt-10 space-y-2">
+            {/* itemScope/itemType makes FAQ schema readable without JS */}
+            <motion.div
+              variants={item}
+              className="mt-10 space-y-2"
+              itemScope
+              itemType="https://schema.org/FAQPage"
+            >
               {items.map((it, i) => {
                 const isOpen = open === i
                 return (
-                  <div key={it.q} className="glass overflow-hidden rounded-xl">
+                  <div
+                    key={it.q}
+                    className="glass overflow-hidden rounded-xl"
+                    itemScope
+                    itemProp="mainEntity"
+                    itemType="https://schema.org/Question"
+                  >
                     <button
                       type="button"
                       onClick={() => setOpen(isOpen ? -1 : i)}
@@ -49,6 +61,7 @@ export default function FAQ() {
                       <span
                         className="text-sm font-semibold text-text md:text-base"
                         style={{ fontFamily: 'var(--font-display)' }}
+                        itemProp="name"
                       >
                         {it.q}
                       </span>
@@ -57,21 +70,35 @@ export default function FAQ() {
                         className={`shrink-0 text-muted transition ${isOpen ? 'rotate-180' : ''}`}
                       />
                     </button>
-                    <AnimatePresence initial={false}>
-                      {isOpen ? (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.25 }}
-                          className="overflow-hidden"
-                        >
-                          <p className="border-t border-border px-5 py-4 text-sm leading-relaxed text-muted">
-                            {it.a}
-                          </p>
-                        </motion.div>
-                      ) : null}
-                    </AnimatePresence>
+
+                    {/* Always render answer in DOM for crawlers, just hide visually when closed */}
+                    <div
+                      itemScope
+                      itemProp="acceptedAnswer"
+                      itemType="https://schema.org/Answer"
+                    >
+                      <AnimatePresence initial={false}>
+                        {isOpen ? (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.25 }}
+                            className="overflow-hidden"
+                          >
+                            <p
+                              className="border-t border-border px-5 py-4 text-sm leading-relaxed text-muted"
+                              itemProp="text"
+                            >
+                              {it.a}
+                            </p>
+                          </motion.div>
+                        ) : (
+                          /* Hidden from view but readable by Google */
+                          <span className="sr-only" itemProp="text">{it.a}</span>
+                        )}
+                      </AnimatePresence>
+                    </div>
                   </div>
                 )
               })}

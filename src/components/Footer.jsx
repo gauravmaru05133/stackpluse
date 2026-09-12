@@ -92,7 +92,14 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-12 max-w-6xl px-5 md:px-8">
+      {/* SEO keyword paragraph — visible text for search engines, visually subtle */}
+      <div className="mx-auto mt-10 max-w-6xl border-t border-border/50 px-5 pt-8 md:px-8">
+        <p className="text-xs leading-relaxed text-muted/50">
+          StackPulse is an online business platform for local businesses in India. Create a professional website for your taxi service, travel agency, salon, gym, plumber, electrician, home services business or any local service. Get discovered by nearby customers, manage enquiries, bookings, payments and grow your brand online — all from one simple platform.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-6 max-w-6xl px-5 md:px-8">
         <p className="text-xs text-muted/70">
           © {new Date().getFullYear()} StackPulse — {t('footer.rights')}
         </p>
