@@ -1,6 +1,19 @@
 import { motion } from 'framer-motion'
+import { Star, ExternalLink } from 'lucide-react'
 import SectionReveal from './SectionReveal'
 import { useLanguage } from '../i18n/LanguageContext'
+
+const TESTIMONIALS = [
+  {
+    quote:
+      'StackPulse gave Rudra Travels a professional online presence in no time. Customers can now find us, check our services, and WhatsApp us directly — all from one page.',
+    name: 'Rudra Travels',
+    role: 'Taxi & Outstation · Rajkot, Gujarat',
+    href: 'https://rudratravels.challo.co/',
+    stars: 5,
+    initials: 'RT',
+  },
+]
 
 export default function Trust() {
   const { t } = useLanguage()
@@ -43,6 +56,46 @@ export default function Trust() {
                 >
                   {p}
                 </motion.span>
+              ))}
+            </div>
+
+            {/* Testimonials */}
+            <div className="mt-16 flex flex-wrap justify-center gap-6">
+              {TESTIMONIALS.map((t) => (
+                <motion.div
+                  key={t.name}
+                  variants={item}
+                  className="glass relative w-full max-w-xl rounded-2xl p-7"
+                >
+                  {/* Stars */}
+                  <div className="mb-4 flex gap-1">
+                    {Array.from({ length: t.stars }).map((_, i) => (
+                      <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  <blockquote className="text-base leading-relaxed text-text">
+                    "{t.quote}"
+                  </blockquote>
+                  <div className="mt-5 flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-cyan/20 text-sm font-bold text-cyan">
+                        {t.initials}
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-text">{t.name}</p>
+                        <p className="text-xs text-muted">{t.role}</p>
+                      </div>
+                    </div>
+                    <a
+                      href={t.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-cyan hover:opacity-80"
+                    >
+                      Visit site <ExternalLink size={12} />
+                    </a>
+                  </div>
+                </motion.div>
               ))}
             </div>
           </>

@@ -3,10 +3,16 @@ import { ExternalLink } from 'lucide-react'
 import SectionReveal from './SectionReveal'
 import { useLanguage } from '../i18n/LanguageContext'
 
-const LIVE = {
-  url: 'https://gaurav-travel.challo.co/',
-  image: '/previews/gaurav-travel.png',
-}
+const LIVE_EXAMPLES = [
+  {
+    url: 'https://gaurav-travel.challo.co/',
+    image: '/previews/gaurav-travel.png',
+  },
+  {
+    url: 'https://rudratravels.challo.co/',
+    image: '/previews/rudra-travels.png',
+  },
+]
 
 export default function Examples() {
   const { t } = useLanguage()
@@ -16,38 +22,39 @@ export default function Examples() {
       name: t('examples.e1Name'),
       category: t('examples.e1Category'),
       live: true,
-      image: LIVE.image,
-      href: LIVE.url,
+      image: LIVE_EXAMPLES[0].image,
+      href: LIVE_EXAMPLES[0].url,
     },
     {
       name: t('examples.e2Name'),
       category: t('examples.e2Category'),
-      sample: true,
-      gradient: 'from-cyan/20 to-purple/30',
+      live: true,
+      image: LIVE_EXAMPLES[1].image,
+      href: LIVE_EXAMPLES[1].url,
     },
     {
       name: t('examples.e3Name'),
       category: t('examples.e3Category'),
       sample: true,
-      gradient: 'from-warm/20 to-purple/25',
+      gradient: 'from-cyan/20 to-purple/30',
     },
     {
       name: t('examples.e4Name'),
       category: t('examples.e4Category'),
       sample: true,
-      gradient: 'from-purple/25 to-cyan/15',
+      gradient: 'from-warm/20 to-purple/25',
     },
     {
       name: t('examples.e5Name'),
       category: t('examples.e5Category'),
       sample: true,
-      gradient: 'from-cyan/15 to-warm/20',
+      gradient: 'from-purple/25 to-cyan/15',
     },
     {
       name: t('examples.e6Name'),
       category: t('examples.e6Category'),
       sample: true,
-      gradient: 'from-purple/20 to-warm/15',
+      gradient: 'from-cyan/15 to-warm/20',
     },
   ]
 
