@@ -9,6 +9,7 @@ export default function Footer() {
     { href: '#top', label: t('footer.home') },
     { href: '#features', label: t('footer.features') },
     { href: '#solutions', label: t('footer.solutionsLink') },
+    { href: '/creators', label: t('footer.creators') },
     { href: '#talk', label: t('footer.talk') },
     { href: '#faq', label: t('footer.faq') },
     { href: '#contact', label: t('footer.contact') },

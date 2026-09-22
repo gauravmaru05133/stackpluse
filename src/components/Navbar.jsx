@@ -13,6 +13,7 @@ export default function Navbar() {
   const links = [
     { href: '#features', label: t('nav.features') },
     { href: '#solutions', label: t('nav.solutions') },
+    { href: '/creators', label: t('nav.creators') },
     { href: '#talk', label: t('nav.talk') },
     { href: '#faq', label: t('nav.faq') },
     { href: '#contact', label: t('nav.contact') },
