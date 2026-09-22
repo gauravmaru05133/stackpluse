@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Host: https://stackpulse.in
+Sitemap: https://stackpulse.in/sitemap.xml

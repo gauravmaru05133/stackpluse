@@ -1,0 +1,28 @@
+{
+  "id": "https://stackpulse.in/",
+  "name": "StackPulse Business",
+  "short_name": "StackPulse",
+  "description": "StackPulse Business (stackpulse.in / stackpulsebusiness / stackpulsein) — launch your local business website and manage customers, enquiries, bookings and payments.",
+  "start_url": "/?utm_source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#070b14",
+  "theme_color": "#070b14",
+  "lang": "en-IN",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
