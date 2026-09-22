@@ -96,6 +96,10 @@ export default function Footer() {
       <div className="mx-auto mt-10 max-w-6xl border-t border-border/50 px-5 pt-8 md:px-8">
         <p className="text-xs leading-relaxed text-muted/50">
           {t('footer.seo')}
+          {' '}
+          <a href="/stack-pulse-business/" className="text-cyan/80 underline-offset-2 hover:underline">
+            Stack Pulse Business
+          </a>
         </p>
       </div>
 
